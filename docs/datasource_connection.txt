@@ -1,0 +1,3 @@
+create user 'hyusr'@'localhost' identified by 'hydr@P@55';
+create database hydradb;
+grant all privileges on hydradb.* to 'hyusr'@'localhost';
