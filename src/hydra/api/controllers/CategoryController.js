@@ -14,7 +14,7 @@ module.exports = {
         var data = req.allParams();
 
         console.log(data.name);
-        if (data.name && data.name.length == 0)
+        if (data.name && data.name.length === 0)
             return res.view("homepage", { result: undefined, status: "Failed", message: "Category Name empty" });
 
         var selectcategory = Category.find();
@@ -32,7 +32,7 @@ module.exports = {
                     if (err) {
                         return res.view("homepage", { result: undefined, status: "Failed", message: "Category creation failed" });
                     }
-                    return res.view("homepage", { result: undefined, status: "Success", message: "Category successfully created." })
+                    return res.view("homepage", { result: undefined, status: "Success", message: "Category successfully created." });
                 });
             }
         });
