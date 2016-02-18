@@ -20,30 +20,10 @@
       <ul class="getting-started">
         <li class="clearfix">
           <div>
-
-             <%=status %> </br>
-             <%= message%>
-
+           
           </div>
           <div>
             <a href="/Category/getCategories">getcategories</a>
-
-            <% if(result){ %>
-            <table>
-
-              <% result.forEach(function (category){ %>
-              <tr>
-                <td>
-                  <%= category.id %>
-                </td>
-                <td>
-                  <%=category.name %>
-                </td>
-              </tr>
-              <% });%>
-
-            </table>
-            <% } %>
           </div>
           </br>
           <div class="step">

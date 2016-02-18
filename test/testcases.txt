@@ -1,0 +1,10 @@
+test cases for category creation
+--------------------------------
+- add unique category	[should add category]
+- add existing category	[should not add category]
+- add empty category	[should return failure]
+
+test cases for category listing
+--------------------------------
+- fetch all category(categories present)	[should list all categories]
+- fetch all category(categories not present)	[should return no categories found]

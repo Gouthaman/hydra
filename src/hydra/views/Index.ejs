@@ -13,39 +13,12 @@
   <div class="default-page">
     <div class="header">
       <h1 id="main-title" class="container">
-        <%= __('Hydra Repository Application') %>
+        <%= __('Welcome to Hydra Repository Application') %>
       </h1>
     </div>
     <div class="main container clearfix">
       <ul class="getting-started">
         <li class="clearfix">
-          <div>
-
-             <%=status %> </br>
-             <%= message%>
-
-          </div>
-          <div>
-            <a href="/Category/getCategories">getcategories</a>
-
-            <% if(result){ %>
-            <table>
-
-              <% result.forEach(function (category){ %>
-              <tr>
-                <td>
-                  <%= category.id %>
-                </td>
-                <td>
-                  <%=category.name %>
-                </td>
-              </tr>
-              <% });%>
-
-            </table>
-            <% } %>
-          </div>
-          </br>
           <div class="step">
             <div class="sprite one"></div>
             <h3>Generate a REST API.</h3>
