@@ -6,10 +6,10 @@
  */
 
 module.exports = {
-
+adapter: 'sails-mysql',
     attributes: {
         id: {
-            type: 'integer',
+            type: 'INTEGER',
             primaryKey: true,
             autoIncrement: true
         },
