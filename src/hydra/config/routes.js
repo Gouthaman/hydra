@@ -34,6 +34,9 @@ module.exports.routes = {
     '/': {
         controller: 'CategoryController', action: 'defaultaction'
     },
+    '/home':{
+        controller: 'HomeController', action: 'index'
+    },
     '/category/add': {
         controller: 'CategoryController', action: 'addCategory'
     }
