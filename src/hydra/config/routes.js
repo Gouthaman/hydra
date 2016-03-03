@@ -36,6 +36,9 @@ module.exports.routes = {
     },
     '/category/add': {
         controller: 'CategoryController', action: 'addCategory'
+    },
+    '/component/version/:compid':{
+      controller: 'VersionController', action: 'get'  
     }
 
     /***************************************************************************
