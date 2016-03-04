@@ -35,11 +35,11 @@ module.exports = {
   		type:'boolean'
   	},
   	ratings:{
-  		collection:'Rating',
+  		collection:'VersionRating',
   		via:'version'
   	},
   	downloads:{
-  		collection:'Usage',
+  		collection:'VersionUsage',
   		via:'version'
   	}
   }

@@ -51,20 +51,17 @@ module.exports = {
 
         data = req.allParams();
         component = data.componentName;
-        imageFilename = '/hydra/assets/images/noimage.jpg';
+        imageFilename = 'noimage.jpg';
 
         req.file('userPhoto').upload({
-            maxBytes: 10000000,
-            dirname: 'C:/wamp/www/hydra/assets/images/',
-            saveAs: function(file){
-                if(file){
-                    imageFilename = '/hydra/assets/images/' + component + '_logo.' + file.filename.split('.')[1];
-                }
-                return imageFilename;
+            dirname: sails.config.paths.public + "/images/",
+            saveAs: function(file,cb){
+                imageFilename=component+'_logo.'+file.filename.split('.')[1];
+                cb(null,imageFilename);
             }
         }, function(err, files) {
-            if (err) return res.serverError(err);            
-            addComponent(res,data,imageFilename);
+            if (err) return res.serverError(err); 
+            addComponent(res,data,imageFilename);            
         });        
     },
     get: function(req, res) {
