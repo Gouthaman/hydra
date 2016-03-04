@@ -42,6 +42,9 @@ module.exports.routes = {
     },
     '/component/version/:compid':{
       controller: 'VersionController', action: 'get'  
+    },
+    '/Version/submit/:compid':{
+        controller:'VersionController',action:'add'
     }
 
     /***************************************************************************
