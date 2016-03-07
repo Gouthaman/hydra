@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 	 */
 	function invokeConfigFn(tasks) {
 		for (var taskName in tasks) {
-			if (tasks.hasOwnProperty(taskName) && taskName=='jshint') {
+			if (tasks.hasOwnProperty(taskName)) {
 				tasks[taskName](grunt);
 			}
 		}
@@ -76,7 +76,6 @@ module.exports = function(grunt) {
 
 	// Run task functions to configure Grunt.	
 	invokeConfigFn(taskConfigurations);
-	//TODO: Albert commented the below lines. Uncomment as and when existing grunt tasks are needed
-	//invokeConfigFn(registerDefinitions);
+	invokeConfigFn(registerDefinitions);
 
 };

@@ -34,8 +34,17 @@ module.exports.routes = {
     '/': {
         controller: 'CategoryController', action: 'defaultaction'
     },
+    '/home':{
+        controller: 'HomeController', action: 'index'
+    },
     '/category/add': {
         controller: 'CategoryController', action: 'addCategory'
+    },
+    '/component/version/:compid':{
+      controller: 'VersionController', action: 'get'  
+    },
+    '/Version/submit/:compid':{
+        controller:'VersionController',action:'add'
     }
 
     /***************************************************************************

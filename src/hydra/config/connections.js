@@ -45,7 +45,8 @@ module.exports.connections = {
     host: 'localhost',
     user: 'hyusr',
     password: 'hydr@P@55',
-    database: 'hydradb'
+    database: 'hydradb',
+    port: 3306
   },
 
   /***************************************************************************

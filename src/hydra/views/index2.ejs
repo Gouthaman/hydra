@@ -1,0 +1,36 @@
+<div id="top">
+	<div class="logo">
+		<img src="images/hydra_logo_t.gif" />
+	</div>
+	<div class="sitename">Happiest Minds Component Repository</div>
+	<div class="search">
+		<input type="text" placeholder="Search components..." required>
+		<button type="submit">Search</button>
+	</div>
+	<div class="rightc">
+		<div class="wc">welcome albert</div>
+		<div id="burger">
+			<a href="#menu">&#9776;</a>
+			<div id="menu"></div>
+		</div>					
+	</div>
+</div>
+<div id="container">
+	<div id="tabmenu">
+		<ul>	
+			<li class="active"><a href="#">Latest</a></li>				
+			<li><a href="#">Top Rated</a></li>					
+			<li><a href="#">Featured</a></li>
+		</ul>
+		<div style="height:300px;"></div>
+	</div>	
+</div>
+<script type="text/javascript">
+	document.querySelector("#tabmenu>ul").addEventListener("click", function(e){
+		var list = e.target.parentElement.parentElement.getElementsByTagName("li");
+		for(i=0;i<list.length;i++){
+			list[i].classList.remove("active");
+		}
+		e.target.parentElement.classList.add("active");
+	},false);
+</script>

@@ -71,7 +71,7 @@
           <%Compresult.forEach(function(component){%>
           <tr>
           <td>
-          <%=component.name%>
+          <a href='/component/version/<%=component.id%>'><%=component.name%></a>
           </td>
           <td>
           <%=component.description%>
@@ -86,7 +86,7 @@
           <%=component.componentType.name%>
           </td>
           <td>
-          <img src='http://localhost<%=component.image%>'></img>
+          <img src='../images/<%=component.image%>'></img>
           </td>
           </tr>
           <%});%>
