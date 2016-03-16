@@ -48,5 +48,33 @@
           </table>
           <%}%>
 </div>
+<br/>
+<br/>
+<div>
+<form id="versionrating"
+      enctype="multipart/form-data"
+      action="/Version/rating/<%=compId%>"
+      method="post" name="uploadratForm" novalidate>
+      <label>Version Name:</label>
+      <% if(result){ %>
+            <select name="versionName" id="versionName">
+
+              <% result.forEach(function (version){ %>
+             
+                  <option value=<%= version.id %>>
+               
+                  <%=version.name %></option>
+               
+              <% });%>
+
+            </select>
+            <% } %>  
+      <br/>
+      <label>Rating:</label>
+      <input type="text" id="versionrating" name="versionrating"></input><br/>
+
+ <input type="submit" value="Rate Version"/>
+</form>
+</div>
  </body>
 </html>

@@ -7,7 +7,7 @@
 
 module.exports = {
 	index: function(request, response){
-		return response.view('index2',{});
+		return response.view('index2',{user: 'gouthaman'});
 	}
 };
 

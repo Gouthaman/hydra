@@ -45,6 +45,12 @@ module.exports.routes = {
     },
     '/Version/submit/:compid':{
         controller:'VersionController',action:'add'
+    },
+    '/Version/rating/:compid':{
+        controller:'VersionController',action:'addRating'
+    },
+    '/Version/download/:versionId':{
+        controller:'VersionController',action:'versionUsage'  
     }
 
     /***************************************************************************
