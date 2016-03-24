@@ -23,7 +23,7 @@ module.exports = {
   		size:1024
   	},
   	owner:{
-  		type:'string',
+  		model:'user',
   		required: true
   	},
   	image:{

@@ -48,4 +48,16 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+  '*': true,
+
+  'VersionController': {
+    '*': true,
+    'add':['isAuthenticated','isComponentOwner'],
+    'addRating':'isAuthenticated',
+    'versionUsage':'isAuthenticated'
+  },
+  'ComponentController':{
+    '*':true,
+    'add':['isAuthenticated','isAdmin']
+  },
 };
