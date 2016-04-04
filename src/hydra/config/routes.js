@@ -51,7 +51,18 @@ module.exports.routes = {
     },
     '/Version/download/:versionId':{
         controller:'VersionController',action:'versionUsage'  
-    }
+    },
+    'get /login': {
+       view: 'login'
+  },
+  'post /login': 'SecurityController.login',
+
+  '/logout': 'SecurityController.logout',
+
+  'get /signup': {
+    view: 'signup'
+  },
+  'post /signup':'SecurityController.add'
 
     /***************************************************************************
     *                                                                          *

@@ -13,16 +13,16 @@ module.exports = {
             if (err)
                 return res.serverError(err);
             if (results.length > 0)
-                return res.view("versiondetials", {
+                return res.json({
+                    status: "200",
                     result: results,
-                    compId: componentId,
-                    status: ""
+                    compId: componentId
                 });
             else
-                return res.view("versiondetials", {
-                    result: undefined,
+                return res.json({
+                    status: "209",
                     compId: componentId,
-                    status: "No versions"
+                    message: "No data found"
                 });
         });
     },
@@ -47,20 +47,20 @@ module.exports = {
                     'active': true
                 }).exec(function(vererr, verresu) {
                     if (vererr)
-                        return res.view("versiondetials", {
-                            result: undefined,
+                        return res.json({
+                            status:"209",
                             compId: compId,
-                            status: "Creation failed"
+                            message: "Creation failed"
                         });
                     Version.find({
                         component: compId
                     }).populate('component').exec(function(errver, verresults) {
                         if (errver)
                             return res.serverError(errver);
-                            return res.view("versiondetials", {
+                            return res.json({
+                                status:"200",
                                 result: verresults,
-                                compId: compId,
-                                status: "Successfully created"
+                                compId: compId
                             });
                     });
                 });
@@ -72,10 +72,10 @@ module.exports = {
             if(vererr)
                 return res.serverError(vererr);
             if(!verresults)
-                return res.view("versiondetials", {
-                                result: undefined,
+                return res.json({
+                                status: "209",
                                 compId: data.compid,
-                                status: "Invalid version"
+                                message: "Invalid version"
                             });
             else
             {
@@ -85,7 +85,7 @@ module.exports = {
                     if(!ratresults)
                     {
                         VersionRating.create({
-                            "user":"Goutham",
+                            "user":req.user,
                             "version":verresults,
                             "rating":data.versionrating
                         }).exec(function(ratcreerr,ratcreresults){
@@ -96,10 +96,11 @@ module.exports = {
                             }).populate('component').exec(function(errver, verresults) {
                                 if (errver)
                                     return res.serverError(errver);
-                                    return res.view("versiondetials", {
+                                    return res.json({
+                                        status:"200",
+                                        message: "Rating submitted successfully",
                                         result: verresults,
-                                        compId: data.compid,
-                                        status: "Rating submitted successfully"
+                                        compId: data.compid
                                     });
                             });
                         });
@@ -115,10 +116,11 @@ module.exports = {
                             }).populate('component').exec(function(errver, verresults) {
                                 if (errver)
                                     return res.serverError(errver);
-                                    return res.view("versiondetials", {
+                                    return res.json({
+                                        status:"200",
+                                        message: "Rating submitted successfully",
                                         result: verresults,
-                                        compId: data.compid,
-                                        status: "Rating submitted successfully"
+                                        compId: data.compid
                                     });
                             });
                         });
@@ -139,16 +141,16 @@ module.exports = {
             if(vererr)
                 res.serverError(vererr);
             if(!verresult)
-                return res.view("versiondetials", {
-                                result: undefined,
+                return res.json({
+                                status: "209",
                                 compId: verresult.component,
-                                status: "Invalid version"
+                                message: "Invalid version"
                             });
             else
             {
                 compId=verresult.component;
                 VersionUsage.create({
-                    "user":"Goutham",
+                    "user":req.user,
                     "version":verresult
                 }).exec(function(userr,usresult){
                     if(userr)

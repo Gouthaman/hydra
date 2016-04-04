@@ -14,8 +14,7 @@ module.exports = {
         autoIncrement: true
   	},
   	user:{
-  		  type:'string',
-  		  required:true
+  		  model:'user'
   	},
   	version:{
   		  model:'version'

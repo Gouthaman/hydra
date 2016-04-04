@@ -14,11 +14,9 @@ module.exports = {
                 id: data.category
             }).exec(function(catErr, catRes) {
                 if (catErr || !catRes) {
-                    return res.view("homepage", {
-                        result: undefined,
-                        status: "Failed",
-                        message: "Invalid category",
-                        Compresult: undefined
+                    return res.json({
+                        status: "209",
+                        message: "Invalid category"
                     });
                 }
                 
@@ -28,22 +26,18 @@ module.exports = {
                     'image': imgFileName,
                     'referenceLink': data.referencelink,
                     'componentType': catRes,
-                    'owner': "Goutham"
+                    'owner': req.user
                 }).exec(function(err, results) {
                     console.log(results);
                     if (err) {
-                        return res.view("homepage", {
-                            result: undefined,
-                            status: "Failed",
-                            message: "Component creation failed",
-                            Compresult: undefined
+                        return res.json({
+                            status: "209",
+                            message: "Component creation failed"
                         });
                     }
-                    return res.view("homepage", {
-                        result: undefined,
-                        status: "Success",
-                        message: "Componenet successfully created.",
-                        Compresult: undefined
+                    return res.json({
+                        status: "200",
+                        message: "Componenet successfully created."
                     });
                 });
             });
@@ -68,18 +62,14 @@ module.exports = {
         var component = Component.find().populate('componentType');
         component.exec(function(err, results) {
             if (results.length > 0)
-                return res.view("homepage", {
-                    result: undefined,
-                    status: "",
-                    message: "",
+                return res.json({
+                    status: "200",
                     Compresult: results
                 });
             else
-                return res.view("homepage", {
-                    result: undefined,
-                    status: "",
-                    message: "No details found",
-                    Compresult: undefined
+                return res.json({
+                    status: "209",
+                    message: "No details found"
                 });
         });
     }
